@@ -142,11 +142,11 @@ public class FunctionLibrary
 		int column=Integer.parseInt(testdata);
 		if(!driver.findElement(By.xpath(PropertyFileUtil.getValueForKey("search-box"))).isDisplayed())
 			driver.findElement(By.xpath(PropertyFileUtil.getValueForKey("search-panel"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath(PropertyFileUtil.getValueForKey("search-box"))).clear();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath(PropertyFileUtil.getValueForKey("search-box"))).sendKeys(exp_data);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath(PropertyFileUtil.getValueForKey("search-button"))).click();
 		WebElement table=driver.findElement(By.xpath(PropertyFileUtil.getValueForKey("supp-table")));
 		List<WebElement>rows= table.findElements(By.tagName("tr"));
@@ -154,7 +154,7 @@ public class FunctionLibrary
 		for(int i=1;i<rows.size();i++)
 		{
 			String act_data=driver.findElement(By.xpath("//table[@id='tbl_a_supplierslist']/tbody/tr["+i+"]/td["+column+"]/div/span/span")).getText();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			System.out.println(exp_data+"    "+act_data);
 			Assert.assertEquals(act_data, exp_data,"Snumber is not matching");
 			break;
